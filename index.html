@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Effy Sounds</title>
+    <style>
+      @import url("//fonts.googleapis.com/earlyaccess/notosanskr.css");
+      * {
+        font-family: "Noto Sans KR", sans-serif;
+      }
+      body {
+        background-image: url(./img/bg-pigno.jpg);
+        background-repeat: no-repeat;
+        background-size: auto;
+        height: 100vh;
+      }
+      #set {
+        margin: 30px;
+        height: 80vh;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid #000;
+      }
+      #set h2 {
+        text-align: center;
+        background: #fff;
+      }
+      #set #mnt {
+        height: calc(100vh - 600px);
+        min-height: 100px;
+      }
+      #set #mnt .monitor {
+        background-image: url(./img/bg-pigno.jpg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        height: 100%;
+      }
+      #pia .note-contain {
+        display: flex;
+        justify-content: center;
+        margin: 20px;
+      }
+
+      #pia {
+        margin-bottom: 20px;
+      }
+      #pia h2 {
+        padding: 6px;
+        background: #fff;
+      }
+      #pia .note {
+        width: 100%;
+        overflow-x: scroll;
+        white-space: nowrap;
+        display: flex;
+        justify-content: center;
+      }
+      #pia .note span {
+        display: block;
+        float: left;
+        box-sizing: border-box;
+        height: 200px;
+        width: 50px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 14px;
+        flex-shrink: 0; /* 요소가 줄어들지 않도록 설정 */
+        cursor: pointer;
+      }
+      #pia .note span::after {
+        content: "";
+        clear: both;
+        display: block;
+      }
+      #pia .note .key {
+        position: relative;
+      }
+      #pia .note .key-wh {
+        background: #fff;
+        border: 1px solid #000;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding-bottom: 10px;
+      }
+      #pia .note .key-bk {
+        text-align: center;
+        background: #000;
+        color: #fff;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 10px;
+        align-items: flex-end;
+
+        bottom: 10px;
+        width: 30px;
+        z-index: 1;
+        height: 70%;
+        top: 0px;
+        right: -15px;
+      }
+
+      /* Click effect */
+      /* 기본 키보드 단축키 스타일 */
+      .shortcut {
+        color: red; /* 단축키 색상 */
+        font-weight: bold;
+        font-style: normal;
+      }
+
+      /* 흰 건반이 눌렸을 때 */
+      .key-wh.active {
+        background-color: #ddd; /* 연한 회색 */
+        transform: scale(0.98); /* 살짝 눌린 효과 */
+        box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.5);
+      }
+
+      /* 검은 건반이 눌렸을 때 */
+      .key-bk.active {
+        background-color: #333; /* 더 어두운 검은색 */
+        transform: scale(0.98);
+        box-shadow: inset 0px 0px 5px rgba(255, 255, 255, 0.3);
+      }
+
+      /* 애니메이션 효과 추가 */
+      .key-wh,
+      .key-bk {
+        transition: all 0.1s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="set">
+      <div id="mnt">
+        <h2>Pitch Monitor🎶</h2>
+        <div class="monitor"></div>
+      </div>
+
+      <div id="pia">
+        <h2>Touch Piano 🎹</h2>
+        <div class="note-contain">
+          <!-- 피아노 노트 -->
+          <div class="note">
+            <span class="key">
+              <span class="key-wh" id="C3"
+                >3C <br />
+                'Z'</span
+              >
+              <span class="key-bk" id="Db3"
+                >C# <br />
+                '2'</span
+              >
+            </span>
+            <span class="key">
+              <span class="key-wh" id="D3"
+                >3D <br />
+                'X'</span
+              >
+              <span class="key-bk" id="Eb3"
+                >D# <br />
+                '3'</span
+              >
+            </span>
+            <span class="key-wh" id="E3"
+              >3E <br />
+              'C'</span
+            >
+            <span class="key">
+              <span class="key-wh" id="F3"
+                >3F <br />
+                'V'</span
+              >
+              <span class="key-bk" id="Gb3"
+                >F# <br />
+                '5'</span
+              >
+            </span>
+            <span class="key">
+              <span class="key-wh" id="G3"
+                >3G <br />
+                'B'</span
+              >
+              <span class="key-bk" id="Ab3"
+                >G# <br />
+                '6'</span
+              >
+            </span>
+            <span class="key">
+              <span class="key-wh" id="A3"
+                >3A <br />
+                'N'</span
+              >
+              <span class="key-bk" id="Bb3"
+                >A# <br />
+                '7'</span
+              >
+            </span>
+            <span class="key-wh" id="B3"
+              >3B <br />
+              'M'</span
+            >
+
+            <span class="key">
+              <span class="key-wh" id="C4"
+                >4C <br />
+                'A'</span
+              >
+              <span class="key-bk" id="Db4"
+                >C# <br />
+                '9'</span
+              >
+            </span>
+            <span class="key">
+              <span class="key-wh" id="D4"
+                >4D <br />
+                'S'</span
+              >
+              <span class="key-bk" id="Eb4"
+                >D# <br />
+                '0'</span
+              >
+            </span>
+            <span class="key-wh" id="E4"
+              >4E <br />
+              'D'</span
+            >
+            <span class="key">
+              <span class="key-wh" id="F4"
+                >4F <br />
+                'F'</span
+              >
+              <span class="key-bk" id="Gb4"
+                >F# <br />
+                '='</span
+              >
+            </span>
+            <span class="key">
+              <span class="key-wh" id="G4"
+                >4G <br />
+                'G'</span
+              >
+              <span class="key-bk" id="Ab4"
+                >G# <br />
+                '['</span
+              >
+            </span>
+            <span class="key">
+              <span class="key-wh" id="A4"
+                >4A <br />
+                'H'</span
+              >
+              <span class="key-bk" id="Bb4"
+                >A# <br />
+                ']'</span
+              >
+            </span>
+            <span class="key-wh" id="B4"
+              >4B <br />
+              'J'</span
+            >
+
+            <span class="key">
+              <span class="key-wh" id="C5"
+                >5C <br />
+                'Q'</span
+              >
+              <span class="key-bk" id="Db5"
+                >C# <br />
+                'O'</span
+              >
+            </span>
+            <span class="key">
+              <span class="key-wh" id="D5"
+                >5D <br />
+                'W'</span
+              >
+              <span class="key-bk" id="Eb5"
+                >D# <br />
+                'P'</span
+              >
+            </span>
+            <span class="key-wh" id="E5"
+              >5E <br />
+              'E'</span
+            >
+            <span class="key">
+              <span class="key-wh" id="F5"
+                >5F <br />
+                'R'</span
+              >
+              <span class="key-bk" id="Gb5">F#</span>
+            </span>
+            <span class="key">
+              <span class="key-wh" id="G5"
+                >5G <br />
+                'T'</span
+              >
+              <span class="key-bk" id="Ab5">G#</span>
+            </span>
+            <span class="key">
+              <span class="key-wh" id="A5"
+                >5A <br />
+                'Y'</span
+              >
+              <span class="key-bk" id="Bb5">A#</span>
+            </span>
+            <span class="key-wh" id="B5"
+              >5B <br />
+              'U'</span
+            >
+            <span class="key-wh" id="C6"
+              >6C <br />
+              'I'</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const keyMap = {
+          // 3옥타브
+          z: "C3",
+          x: "D3",
+          c: "E3",
+          v: "F3",
+          b: "G3",
+          n: "A3",
+          m: "B3",
+
+          // 4옥타브
+          a: "C4",
+          s: "D4",
+          d: "E4",
+          f: "F4",
+          g: "G4",
+          h: "A4",
+          j: "B4",
+
+          // 5옥타브
+          q: "C5",
+          w: "D5",
+          e: "E5",
+          r: "F5",
+          t: "G5",
+          y: "A5",
+          u: "B5",
+
+          // 6옥타브
+          i: "C6",
+        };
+
+        const sharpKeyMap = {
+          // 3옥타브 (플랫)
+          2: "Db3",
+          3: "Eb3",
+          5: "Gb3",
+          6: "Ab3",
+          7: "Bb3",
+
+          // 4옥타브 (플랫)
+          9: "Db4",
+          0: "Eb4",
+          "=": "Gb4",
+          "[": "Ab4",
+          "]": "Bb4",
+        };
+
+        function playNote(noteId) {
+          let key = document.getElementById(noteId);
+          if (key) {
+            key.classList.add("active"); // 눌린 효과 (CSS 필요)
+            let audio = new Audio(`piano/${noteId}.mp3`);
+            audio
+              .play()
+              .catch((error) => console.error("Playback error:", error));
+
+            // 일정 시간 후 효과 제거
+            setTimeout(() => key.classList.remove("active"), 150);
+          }
+        }
+
+        // 마우스 클릭 이벤트
+        document.querySelectorAll(".key-wh, .key-bk").forEach((key) => {
+          key.addEventListener("click", () => playNote(key.id));
+        });
+
+        // 키보드 입력 이벤트
+        document.addEventListener("keydown", (event) => {
+          let noteId =
+            keyMap[event.key.toLowerCase()] || sharpKeyMap[event.key];
+          if (noteId) playNote(noteId);
+        });
+      });
+    </script>
+  </body>
+</html>
