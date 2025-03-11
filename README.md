@@ -1,9 +1,9 @@
-Site link(vercel) - [link](https://piano-iota-murex.vercel.app/)
 # Simple piano & Pitch monitor
 ![Screenshot 2025-03-10 at 8 17 31 PM](https://github.com/user-attachments/assets/a0df9af0-6a55-4861-9a79-3a20204fbcb9)
 
 
-[앱 소개 구글 슬라이드](https://docs.google.com/presentation/d/e/2PACX-1vSvQx04pRwtseESdSwdGcWvmq9IO26GGf8-MWkcKqvrb9Ua6_Hzmsut6-OwO6teM-2RqkiPLTFd1xY9/pub?start=false&loop=false&delayms=3000)
+- [사이트 링크](https://piano-iota-murex.vercel.app/)
+- [앱 소개 구글 슬라이드](https://docs.google.com/presentation/d/e/2PACX-1vSvQx04pRwtseESdSwdGcWvmq9IO26GGf8-MWkcKqvrb9Ua6_Hzmsut6-OwO6teM-2RqkiPLTFd1xY9/pub?start=false&loop=false&delayms=3000)
 
 
 ## 제작동기
